@@ -1,0 +1,49 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://example.org/dataset/fairified-global-rivers> a dcat:Dataset ;
+    dct:title "FAIRified Global Rivers" ;
+    dct:description "A FAIRified dataset consisting of 1,387 unique river entries. Each is associated with a name, length, length category, spatial coordinates, a list of passed countries, main country, and a continent. The original dataset was transformed into RDF using established semantic vocabularies. River and geographical entities are linked to external resources, e.g., Wikidata and GeoNames. This is done to improve interoperability and reuse of the dataset. Provenance information and derived classification of the rivers based on their lengths are also included." ;
+    dct:identifier "global-rivers-fairified-v1" ;
+    dcat:keyword "River", "GIS", "Geography", "Natural Earth", "Hydrology", "Linked Data", "Wikidata", "GeoNames" ;
+    dct:spatial <http://www.wikidata.org/entity/Q2> ;
+    dcat:version "1.0.0" ;
+    dcat:theme <http://www.wikidata.org/entity/Q4022> ;
+    dcat:landingPage <https://github.com/DinevDD/global-rivers-fairification> ;
+    dct:creator <https://github.com/DinevDD> ;
+    dct:publisher <https://www.utwente.nl/en/> ;
+    dct:source <https://www.kaggle.com/datasets/sangampaudel530/global-rivers-dataset-lengths-and-countries> ;
+    dct:issued "2026-10-11T00:00:00"^^xsd:dateTime ;
+    dct:modified "2026-10-11T00:00:00"^^xsd:dateTime ;
+    prov:wasDerivedFrom <https://www.kaggle.com/datasets/sangampaudel530/global-rivers-dataset-lengths-and-countries>, <https://www.naturalearthdata.com/> ;
+    adms:versionNotes "Initial FAIRified release of the Global Rivers dataset. Modification include data cleaning, data enrichment (unique river identifiers), linking to external entities (Wikidata and GeoNames). Additional semantic representations were introduced for geographical coordinates, river lengths, river length categories, and provenance." ;
+    dct:accessRights "public" ;
+    dct:license <https://www.mit.edu/~amini/LICENSE.md> ;
+    dcat:distribution <https://github.com/DinevDD/global-rivers-fairification> ;
+    dcat:contactPoint <mailto:d.dinev-1@student.utwente.nl> ;
+    dct:references <https://www.kaggle.com/datasets/sangampaudel530/global-rivers-dataset-lengths-and-countries>, <https://www.naturalearthdata.com/> ;
+    void:vocabulary <http://schema.org/>, <http://www.opengis.net/ont/geosparql#>, dct:, <http://dbpedia.org/ontology/>, skos:, prov:, <http://www.w3.org/2003/01/geo/wgs84_pos#>, <http://www.w3.org/2002/07/owl#>, <http://qudt.org/vocab/unit/> ;
+    void:uriSpace "https://example.org/global-rivers/" ;
+    void:exampleResource <https://example.org/global-rivers/river/river-14deb23c806d097f> ;
+    void:triples "43499"^^xsd:nonNegativeInteger ;
+    void:classPartition [
+        void:class <http://schema.org/RiverBodyOfWater> ;
+        void:entities "1387"^^xsd:nonNegativeInteger
+    ], [
+        void:class <http://www.opengis.net/ont/geosparql#Feature> ;
+        void:entities "1387"^^xsd:nonNegativeInteger
+    ], [
+        void:class <http://schema.org/GeoCoordinates> ;
+        void:entities "2774"^^xsd:nonNegativeInteger
+    ], [
+        void:class <http://schema.org/PropertyValue> ;
+        void:entities "1387"^^xsd:nonNegativeInteger
+    ], [
+        void:class skos:Concept ;
+        void:entities "3"^^xsd:nonNegativeInteger
+    ] .

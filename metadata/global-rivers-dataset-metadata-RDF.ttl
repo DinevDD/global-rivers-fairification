@@ -1,0 +1,484 @@
+@prefix : <http://fairdatapoint.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+
+:GeneralinformationGroup
+  a sh:PropertyGroup ;
+  rdfs:label "General information" ;
+  sh:order 0 .
+
+:ProvenanceGroup
+  a sh:PropertyGroup ;
+  rdfs:label "Provenance" ;
+  sh:order 1 .
+
+:AccessGroup
+  a sh:PropertyGroup ;
+  rdfs:label "Access and distribution" ;
+  sh:order 2 .
+
+:ContactGroup
+  a sh:PropertyGroup ;
+  rdfs:label "Contact" ;
+  sh:order 3 .
+
+:SemanticDocumentationGroup
+  a sh:PropertyGroup ;
+  rdfs:label "Semantic documentation" ;
+  sh:order 4 .
+
+:DataQualityGroup
+  a sh:PropertyGroup ;
+  rdfs:label "Data quality and statistics" ;
+  sh:order 5 .
+
+:DatasetShape
+  a sh:NodeShape ;
+  rdfs:label "Global Rivers Dataset" ;
+  dct:description "Metadata profile for the FAIRified Global Rivers dataset." ;
+  sh:targetClass dcat:Dataset ;
+  sh:property [
+    sh:path dct:title ;
+    sh:name "Title" ;
+    sh:description "Title of the FAIRified dataset" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 0 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :GeneralinformationGroup
+  ] ;
+  sh:property [
+    sh:path dct:description ;
+    sh:name "Description" ;
+    sh:description "Description of the rivers dataset and its contents" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 1 ;
+    dash:editor dash:TextAreaEditor ;
+    sh:group :GeneralinformationGroup
+  ] ;
+  sh:property [
+    sh:path dct:identifier ;
+    sh:name "Identifier" ;
+    sh:description "Unique dataset identifier" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 2 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :GeneralinformationGroup
+  ] ;
+  sh:property [
+    sh:path dcat:keyword ;
+    sh:name "Keyword" ;
+    sh:description "Keywords describing the dataset" ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:order 3 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :GeneralinformationGroup
+  ] ;
+  sh:property [
+    sh:path dct:spatial ;
+    sh:name "Spatial coverage" ;
+    sh:description "Geographical coverage of the rivers" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ;
+    sh:order 4 ;
+    dash:editor dash:URIEditor ;
+    sh:group :GeneralinformationGroup
+  ] ;
+  sh:property [
+    sh:path dcat:version ;
+    sh:name "Version" ;
+    sh:description "Version identifier of the FAIRified dataset" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 5 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :GeneralinformationGroup
+  ] ;
+  sh:property [
+    sh:path dcat:theme ;
+    sh:name "Theme" ;
+    sh:description "URI of a topic concept from a controlled vocabulary" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ;
+    sh:order 6 ;
+    dash:editor dash:URIEditor ;
+    sh:group :GeneralinformationGroup
+  ] ;
+  sh:property [
+    sh:path dcat:landingPage ;
+    sh:name "Landing page" ;
+    sh:description "Web page presenting the dataset and its documentation" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:order 7 ;
+    dash:editor dash:URIEditor ;
+    sh:group :GeneralinformationGroup
+  ] ;
+  sh:property [
+    sh:path dct:creator ;
+    sh:name "Creator" ;
+    sh:description "Creator of the FAIRified dataset" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ;
+    sh:order 0 ;
+    dash:editor dash:URIEditor ;
+    sh:group :ProvenanceGroup
+  ] ;
+  sh:property [
+    sh:path dct:publisher ;
+    sh:name "Publisher" ;
+    sh:description "Entity publishing the FAIRified dataset" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 1 ;
+    dash:editor dash:URIEditor ;
+    sh:group :ProvenanceGroup
+  ] ;
+  sh:property [
+    sh:path dct:source ;
+    sh:name "Original source" ;
+    sh:description "URI of the original Kaggle dataset" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 2 ;
+    dash:editor dash:URIEditor ;
+    sh:group :ProvenanceGroup
+  ] ;
+  sh:property [
+    sh:path dct:issued ;
+    sh:name "Issued" ;
+    sh:description "Publication date of the FAIRified dataset" ;
+    sh:datatype xsd:dateTime ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:order 3 ;
+    dash:editor dash:DateTimePickerEditor ;
+    sh:group :ProvenanceGroup
+  ] ;
+  sh:property [
+    sh:path dct:modified ;
+    sh:name "Modified" ;
+    sh:description "Last modification date" ;
+    sh:datatype xsd:dateTime ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:order 5 ;
+    dash:editor dash:DateTimePickerEditor ;
+    sh:group :ProvenanceGroup
+  ] ;
+  sh:property [
+    sh:path prov:wasDerivedFrom ;
+    sh:name "Derived from" ;
+    sh:description "Resource used to derive the FAIRified data, such as the original Kaggle dataset" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:order 6 ;
+    dash:editor dash:URIEditor ;
+    sh:group :ProvenanceGroup
+  ] ;
+  sh:property [
+    sh:path prov:wasGeneratedBy ;
+    sh:name "FAIRification activity" ;
+    sh:description "URI of a documented transformation or FAIRification activity" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ;
+    sh:order 7 ;
+    dash:editor dash:URIEditor ;
+    sh:group :ProvenanceGroup
+  ] ;
+  sh:property [
+    sh:path adms:versionNotes ;
+    sh:name "Version notes" ;
+    sh:description "Changes made in this version of the FAIRified dataset" ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:order 8 ;
+    dash:editor dash:TextAreaEditor ;
+    sh:group :ProvenanceGroup
+  ] ;
+  sh:property [
+    sh:path dct:accessRights ;
+    sh:name "Access rights" ;
+    sh:description "Access restrictions for the dataset" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:in ( "public" "restricted" "private" ) ;
+    sh:order 0 ;
+    dash:editor dash:EnumSelectEditor ;
+    sh:group :AccessGroup
+  ] ;
+  sh:property [
+    sh:path dct:license ;
+    sh:name "License" ;
+    sh:description "URI of the applicable license" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:order 1 ;
+    dash:editor dash:URIEditor ;
+    sh:group :AccessGroup
+  ] ;
+  sh:property [
+    sh:path dcat:distribution ;
+    sh:name "Distribution" ;
+    sh:description "Accessible representation of the dataset" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ;
+    sh:order 2 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :AccessGroup
+  ] ;
+  sh:property [
+    sh:path dcat:contactPoint ;
+    sh:name "Contact point" ;
+    sh:description "Contact for questions about the dataset" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:order 0 ;
+    dash:editor dash:URIEditor ;
+    sh:group :ContactGroup
+  ] ;
+  sh:property [
+    sh:path dct:conformsTo ;
+    sh:name "Conforms to" ;
+    sh:description "URI of a semantic model, SHACL shapes graph or data specification followed by the dataset" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ;
+    sh:order 0 ;
+    dash:editor dash:URIEditor ;
+    sh:group :SemanticDocumentationGroup
+  ] ;
+  sh:property [
+    sh:path foaf:page ;
+    sh:name "Documentation page" ;
+    sh:description "Page explaining the attributes, measurement units, classifications and transformation steps" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ;
+    sh:order 1 ;
+    dash:editor dash:URIEditor ;
+    sh:group :SemanticDocumentationGroup
+  ] ;
+  sh:property [
+    sh:path dct:references ;
+    sh:name "References" ;
+    sh:description "Related methodology, documentation or supporting resources" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ;
+    sh:order 2 ;
+    dash:editor dash:URIEditor ;
+    sh:group :SemanticDocumentationGroup
+  ] ;
+  sh:property [
+    sh:path void:vocabulary ;
+    sh:name "Vocabularies used" ;
+    sh:description "URI of a vocabulary used in the RDF, such as schema.org, GeoSPARQL or PROV-O" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ;
+    sh:order 3 ;
+    dash:editor dash:URIEditor ;
+    sh:group :SemanticDocumentationGroup
+  ] ;
+  sh:property [
+    sh:path void:uriSpace ;
+    sh:name "Resource URI space" ;
+    sh:description "Common URI prefix for project-specific river resources" ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:order 4 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :SemanticDocumentationGroup
+  ] ;
+  sh:property [
+    sh:path void:exampleResource ;
+    sh:name "Example river resource" ;
+    sh:description "URI of a representative river resource in the published RDF" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ;
+    sh:order 5 ;
+    dash:editor dash:URIEditor ;
+    sh:group :SemanticDocumentationGroup
+  ] ;
+  sh:property [
+    sh:path void:triples ;
+    sh:name "RDF triple count" ;
+    sh:description "Total number of triples in the published RDF distribution" ;
+    sh:datatype xsd:nonNegativeInteger ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:order 0 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :DataQualityGroup
+  ] ;
+  sh:property [
+    sh:path void:classPartition ;
+    sh:name "Class statistics" ;
+    sh:description "Per-class number of resources, such as river resources" ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:node :ClassPartitionShape ;
+    sh:minCount 0 ;
+    sh:order 1 ;
+    dash:editor dash:DetailsEditor ;
+    sh:group :DataQualityGroup
+  ] ;
+  sh:property [
+    sh:path dqv:hasQualityMeasurement ;
+    sh:name "Quality measurement" ;
+    sh:description "Structured data quality result, such as completeness or SHACL conformance" ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:node :QualityMeasurementShape ;
+    sh:minCount 0 ;
+    sh:order 2 ;
+    dash:editor dash:DetailsEditor ;
+    sh:group :DataQualityGroup
+  ] .
+
+:DistributionShape
+  a sh:NodeShape ;
+  sh:targetClass dcat:Distribution ;
+  sh:property [
+    sh:path dct:title ;
+    sh:name "Distribution title" ;
+    sh:description "Name of the RDF distribution" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 0 ;
+    dash:editor dash:TextFieldEditor
+  ] ;
+  sh:property [
+    sh:path dcat:mediaType ;
+    sh:name "Media type" ;
+    sh:description "IANA media type string, e.g. text/turtle" ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 1 ;
+    dash:editor dash:TextFieldEditor
+  ] ;
+  sh:property [
+    sh:path dcat:accessURL ;
+    sh:name "Access URL" ;
+    sh:description "Location where the distribution is accessible" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 2 ;
+    dash:editor dash:URIEditor
+  ] ;
+  sh:property [
+    sh:path dcat:downloadURL ;
+    sh:name "Download URL" ;
+    sh:description "Direct file download URL, when available" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:order 3 ;
+    dash:editor dash:URIEditor
+  ] ;
+  sh:property [
+    sh:path dcat:byteSize ;
+    sh:name "File size (bytes)" ;
+    sh:description "Size of the published distribution in bytes" ;
+    sh:datatype xsd:nonNegativeInteger ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:order 4 ;
+    dash:editor dash:TextFieldEditor
+  ] .
+
+:ContactShape
+  a sh:NodeShape ;
+  sh:targetClass vcard:Kind ;
+  sh:property [
+    sh:path vcard:fn ;
+    sh:name "Full name" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 0 ;
+    dash:editor dash:TextFieldEditor
+  ] ;
+  sh:property [
+    sh:path vcard:hasEmail ;
+    sh:name "Email" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:order 1 ;
+    dash:editor dash:URIEditor
+  ] .
+
+:ClassPartitionShape
+  a sh:NodeShape ;
+  sh:property [
+    sh:path void:class ;
+    sh:name "RDF class" ;
+    sh:description "URI of the RDF class whose instances are counted" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 0 ;
+    dash:editor dash:URIEditor
+  ] ;
+  sh:property [
+    sh:path void:entities ;
+    sh:name "Entities in class" ;
+    sh:description "Number of resources belonging to this class" ;
+    sh:datatype xsd:nonNegativeInteger ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 1 ;
+    dash:editor dash:TextFieldEditor
+  ] .
+
+:QualityMeasurementShape
+  a sh:NodeShape ;
+  sh:property [
+    sh:path dqv:isMeasurementOf ;
+    sh:name "Quality metric" ;
+    sh:description "URI of the metric used, such as a defined completeness metric" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 0 ;
+    dash:editor dash:URIEditor
+  ] ;
+  sh:property [
+    sh:path dqv:value ;
+    sh:name "Measured value" ;
+    sh:description "Literal value of the measurement, with an appropriate datatype" ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 1 ;
+    dash:editor dash:TextFieldEditor
+  ] .
+
+# ── Preserved: SHACL/RDF Contour does not model. Round-tripped as-is. ──
+<http://fairdatapoint.org/ClassPartitionShape> <http://www.w3.org/2000/01/rdf-schema#label> "Class partition" .
+<http://fairdatapoint.org/QualityMeasurementShape> <http://www.w3.org/2000/01/rdf-schema#label> "Quality measurement" .
+<http://fairdatapoint.org/DistributionShape> <http://www.w3.org/2000/01/rdf-schema#label> "Dataset distribution" .
