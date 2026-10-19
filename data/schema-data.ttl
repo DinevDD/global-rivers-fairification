@@ -1,0 +1,305 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix grshape: <https://example.org/global-rivers/shapes/> .
+@prefix dash: <http://datashapes.org/dash#> .
+
+:GeneralGroup
+  a sh:PropertyGroup ;
+  rdfs:label "General" ;
+  sh:order 0 .
+
+grshape:RiverShape
+  a sh:NodeShape ;
+  sh:targetClass schema:RiverBodyOfWater ;
+  sh:property _:n3-0 ;
+  sh:property [
+    sh:path rdfs:label ;
+    sh:name "River name" ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 2 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :GeneralGroup
+  ] ;
+  sh:property [
+    sh:path dct:identifier ;
+    sh:name "River identifier" ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 3 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :GeneralGroup
+  ] ;
+  sh:property [
+    sh:path dbo:country ;
+    sh:name "Main country" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 4 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :GeneralGroup
+  ] ;
+  sh:property [
+    sh:path schema:geoIntersects ;
+    sh:name "Countries passed" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:order 5 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :GeneralGroup
+  ] ;
+  sh:property [
+    sh:path schema:containedInPlace ;
+    sh:name "Continent" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 6 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :GeneralGroup
+  ] ;
+  sh:property [
+    sh:path schema:additionalProperty ;
+    sh:name "Length" ;
+    sh:nodeKind sh:IRI ;
+    sh:class schema:PropertyValue ;
+    sh:node grshape:LengthShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 7 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :GeneralGroup
+  ] ;
+  sh:property [
+    sh:path dct:type ;
+    sh:name "Length category" ;
+    sh:nodeKind sh:IRI ;
+    sh:class skos:Concept ;
+    sh:node grshape:LengthCategoryShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:in ( <https://example.org/global-rivers/length-category/short> <https://example.org/global-rivers/length-category/medium> <https://example.org/global-rivers/length-category/long> ) ;
+    sh:order 8 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :GeneralGroup
+  ] ;
+  sh:property [
+    sh:path dbo:sourcePosition ;
+    sh:name "Source coordinates" ;
+    sh:nodeKind sh:IRI ;
+    sh:class schema:GeoCoordinates ;
+    sh:node grshape:CoordinatesShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 9 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :GeneralGroup
+  ] ;
+  sh:property [
+    sh:path dbo:mouthPosition ;
+    sh:name "Mouth coordinates" ;
+    sh:nodeKind sh:IRI ;
+    sh:class schema:GeoCoordinates ;
+    sh:node grshape:CoordinatesShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 10 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :GeneralGroup
+  ] ;
+  sh:property [
+    sh:path owl:sameAs ;
+    sh:name "External identity" ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:order 11 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :GeneralGroup
+  ] ;
+  sh:property [
+    sh:path prov:wasDerivedFrom ;
+    sh:name "Dataset provenance" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 12 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group :GeneralGroup
+  ] .
+
+_:n3-0
+  sh:path rdf:type ;
+  sh:name "Geographic feature type" ;
+  sh:order 1 ;
+  dash:editor dash:TextFieldEditor ;
+  sh:group :GeneralGroup .
+
+grshape:CoordinatesShape
+  a sh:NodeShape ;
+  sh:targetClass schema:GeoCoordinates ;
+  sh:property _:n3-15 ;
+  sh:property [
+    sh:path schema:latitude ;
+    sh:name "Latitude" ;
+    sh:datatype xsd:double ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 2 ;
+    dash:editor dash:TextFieldEditor
+  ] ;
+  sh:property [
+    sh:path schema:longitude ;
+    sh:name "Longitude" ;
+    sh:datatype xsd:double ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 3 ;
+    dash:editor dash:TextFieldEditor
+  ] .
+
+_:n3-15
+  sh:path rdf:type ;
+  sh:name "Spatial thing type" ;
+  sh:order 1 ;
+  dash:editor dash:TextFieldEditor .
+
+grshape:LengthShape
+  a sh:NodeShape ;
+  sh:targetClass schema:PropertyValue ;
+  sh:property [
+    sh:path schema:value ;
+    sh:name "Length value" ;
+    sh:datatype xsd:double ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 1 ;
+    dash:editor dash:TextFieldEditor
+  ] ;
+  sh:property _:n3-19 ;
+  sh:property _:n3-20 .
+
+_:n3-19
+  sh:path schema:unitCode ;
+  sh:name "Unit: kilometres" ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:order 2 ;
+  dash:editor dash:TextFieldEditor .
+
+_:n3-20
+  sh:path schema:propertyID ;
+  sh:name "Measured property: length" ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:order 3 ;
+  dash:editor dash:TextFieldEditor .
+
+grshape:LengthCategoryShape
+  a sh:NodeShape ;
+  sh:targetClass skos:Concept ;
+  sh:property [
+    sh:path skos:prefLabel ;
+    sh:name "Category name" ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 1 ;
+    dash:editor dash:TextFieldEditor
+  ] ;
+  sh:property [
+    sh:path skos:definition ;
+    sh:name "Category definition" ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 2 ;
+    dash:editor dash:TextFieldEditor
+  ] .
+
+grshape:ExternalIdentityLinkShape
+  a sh:NodeShape ;
+  sh:targetClass rdf:Statement ;
+  sh:property _:n3-23 ;
+  sh:property [
+    sh:path rdf:subject ;
+    sh:name "Linked river" ;
+    sh:nodeKind sh:IRI ;
+    sh:class schema:RiverBodyOfWater ;
+    sh:node grshape:RiverShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 2 ;
+    dash:editor dash:TextFieldEditor
+  ] ;
+  sh:property _:n3-25 ;
+  sh:property [
+    sh:path rdf:object ;
+    sh:name "External resource" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 4 ;
+    dash:editor dash:TextFieldEditor
+  ] ;
+  sh:property [
+    sh:path dct:source ;
+    sh:name "Link provider" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 5 ;
+    dash:editor dash:TextFieldEditor
+  ] ;
+  sh:property [
+    sh:path prov:wasDerivedFrom ;
+    sh:name "External record provenance" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 6 ;
+    dash:editor dash:TextFieldEditor
+  ] .
+
+_:n3-23
+  sh:path rdf:type ;
+  sh:name "Provenance entity type" ;
+  sh:order 1 ;
+  dash:editor dash:TextFieldEditor .
+
+_:n3-25
+  sh:path rdf:predicate ;
+  sh:name "Identity predicate" ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:order 3 ;
+  dash:editor dash:TextFieldEditor .
+
+# ── Preserved: SHACL/RDF Contour does not model. Round-tripped as-is. ──
+<https://example.org/global-rivers/shapes/RiverShape> <http://www.w3.org/ns/shacl#name> "River" .
+_:n3-0 <http://www.w3.org/ns/shacl#hasValue> <http://www.opengis.net/ont/geosparql#Feature> .
+<https://example.org/global-rivers/shapes/LengthShape> <http://www.w3.org/ns/shacl#name> "River length" .
+<https://example.org/global-rivers/shapes/LengthCategoryShape> <http://www.w3.org/ns/shacl#name> "Length category" .
+<https://example.org/global-rivers/shapes/CoordinatesShape> <http://www.w3.org/ns/shacl#name> "Geographic coordinates" .
+_:n3-15 <http://www.w3.org/ns/shacl#hasValue> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:n3-19 <http://www.w3.org/ns/shacl#hasValue> <http://qudt.org/vocab/unit/KiloM> .
+_:n3-20 <http://www.w3.org/ns/shacl#hasValue> <http://dbpedia.org/ontology/length> .
+<https://example.org/global-rivers/shapes/ExternalIdentityLinkShape> <http://www.w3.org/ns/shacl#name> "External identity link" .
+_:n3-23 <http://www.w3.org/ns/shacl#hasValue> <http://www.w3.org/ns/prov#Entity> .
+_:n3-25 <http://www.w3.org/ns/shacl#hasValue> <http://www.w3.org/2002/07/owl#sameAs> .
