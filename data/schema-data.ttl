@@ -22,9 +22,9 @@ grshape:GeneralGroup
 
 grshape:RiverShape
   a sh:NodeShape ;
-  rdfs:label "schema-data" ;
+  rdfs:label "River" ;
   sh:targetClass schema:RiverBodyOfWater ;
-  sh:property _:b5_n3-0 ;
+  sh:property _:b4_b8_b5_n3-0 ;
   sh:property [
     sh:path rdfs:label ;
     sh:name "River name" ;
@@ -143,7 +143,7 @@ grshape:RiverShape
     sh:group grshape:GeneralGroup
   ] .
 
-_:b5_n3-0
+_:b4_b8_b5_n3-0
   sh:path rdf:type ;
   sh:name "Geographic feature type" ;
   sh:order 1 ;
@@ -153,7 +153,7 @@ _:b5_n3-0
 grshape:CoordinatesShape
   a sh:NodeShape ;
   sh:targetClass schema:GeoCoordinates ;
-  sh:property _:b5_n3-15 ;
+  sh:property _:b4_b8_b5_n3-15 ;
   sh:property [
     sh:path schema:latitude ;
     sh:name "Latitude" ;
@@ -173,7 +173,7 @@ grshape:CoordinatesShape
     dash:editor dash:TextFieldEditor
   ] .
 
-_:b5_n3-15
+_:b4_b8_b5_n3-15
   sh:path rdf:type ;
   sh:name "Spatial thing type" ;
   sh:order 1 ;
@@ -191,10 +191,10 @@ grshape:LengthShape
     sh:order 1 ;
     dash:editor dash:TextFieldEditor
   ] ;
-  sh:property _:b5_n3-19 ;
-  sh:property _:b5_n3-20 .
+  sh:property _:b4_b8_b5_n3-19 ;
+  sh:property _:b4_b8_b5_n3-20 .
 
-_:b5_n3-19
+_:b4_b8_b5_n3-19
   sh:path schema:unitCode ;
   sh:name "Unit: kilometres" ;
   sh:nodeKind sh:IRI ;
@@ -203,7 +203,7 @@ _:b5_n3-19
   sh:order 2 ;
   dash:editor dash:TextFieldEditor .
 
-_:b5_n3-20
+_:b4_b8_b5_n3-20
   sh:path schema:propertyID ;
   sh:name "Measured property: length" ;
   sh:nodeKind sh:IRI ;
@@ -237,7 +237,7 @@ grshape:LengthCategoryShape
 grshape:ExternalIdentityLinkShape
   a sh:NodeShape ;
   sh:targetClass rdf:Statement ;
-  sh:property _:b5_n3-23 ;
+  sh:property _:b4_b8_b5_n3-23 ;
   sh:property [
     sh:path rdf:subject ;
     sh:name "Linked river" ;
@@ -249,7 +249,7 @@ grshape:ExternalIdentityLinkShape
     sh:order 2 ;
     dash:editor dash:TextFieldEditor
   ] ;
-  sh:property _:b5_n3-25 ;
+  sh:property _:b4_b8_b5_n3-25 ;
   sh:property [
     sh:path rdf:object ;
     sh:name "External resource" ;
@@ -278,13 +278,13 @@ grshape:ExternalIdentityLinkShape
     dash:editor dash:TextFieldEditor
   ] .
 
-_:b5_n3-23
+_:b4_b8_b5_n3-23
   sh:path rdf:type ;
   sh:name "Provenance entity type" ;
   sh:order 1 ;
   dash:editor dash:TextFieldEditor .
 
-_:b5_n3-25
+_:b4_b8_b5_n3-25
   sh:path rdf:predicate ;
   sh:name "Identity predicate" ;
   sh:nodeKind sh:IRI ;
@@ -295,13 +295,13 @@ _:b5_n3-25
 
 # ── Preserved: SHACL/RDF Contour does not model. Round-tripped as-is. ──
 <https://w3id.org/FAIR-course-UT/2026/group07/shapes/RiverShape> <http://www.w3.org/ns/shacl#name> "River" .
-_:b5_n3-0 <http://www.w3.org/ns/shacl#hasValue> <http://www.opengis.net/ont/geosparql#Feature> .
-_:b5_n3-15 <http://www.w3.org/ns/shacl#hasValue> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
-_:b5_n3-19 <http://www.w3.org/ns/shacl#hasValue> <http://qudt.org/vocab/unit/KiloM> .
-_:b5_n3-20 <http://www.w3.org/ns/shacl#hasValue> <http://dbpedia.org/ontology/length> .
-_:b5_n3-23 <http://www.w3.org/ns/shacl#hasValue> <http://www.w3.org/ns/prov#Entity> .
-_:b5_n3-25 <http://www.w3.org/ns/shacl#hasValue> <http://www.w3.org/2002/07/owl#sameAs> .
-<https://example.org/global-rivers/shapes/LengthShape> <http://www.w3.org/ns/shacl#name> "River length" .
-<https://example.org/global-rivers/shapes/LengthCategoryShape> <http://www.w3.org/ns/shacl#name> "Length category" .
-<https://example.org/global-rivers/shapes/CoordinatesShape> <http://www.w3.org/ns/shacl#name> "Geographic coordinates" .
-<https://example.org/global-rivers/shapes/ExternalIdentityLinkShape> <http://www.w3.org/ns/shacl#name> "External identity link" .
+_:b4_b8_b5_n3-0 <http://www.w3.org/ns/shacl#hasValue> <http://www.opengis.net/ont/geosparql#Feature> .
+<https://w3id.org/FAIR-course-UT/2026/group07/shapes/LengthShape> <http://www.w3.org/ns/shacl#name> "River length" .
+<https://w3id.org/FAIR-course-UT/2026/group07/shapes/LengthCategoryShape> <http://www.w3.org/ns/shacl#name> "Length category" .
+<https://w3id.org/FAIR-course-UT/2026/group07/shapes/CoordinatesShape> <http://www.w3.org/ns/shacl#name> "Geographic coordinates" .
+_:b4_b8_b5_n3-15 <http://www.w3.org/ns/shacl#hasValue> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:b4_b8_b5_n3-19 <http://www.w3.org/ns/shacl#hasValue> <http://qudt.org/vocab/unit/KiloM> .
+_:b4_b8_b5_n3-20 <http://www.w3.org/ns/shacl#hasValue> <http://dbpedia.org/ontology/length> .
+<https://w3id.org/FAIR-course-UT/2026/group07/shapes/ExternalIdentityLinkShape> <http://www.w3.org/ns/shacl#name> "External identity link" .
+_:b4_b8_b5_n3-23 <http://www.w3.org/ns/shacl#hasValue> <http://www.w3.org/ns/prov#Entity> .
+_:b4_b8_b5_n3-25 <http://www.w3.org/ns/shacl#hasValue> <http://www.w3.org/2002/07/owl#sameAs> .
