@@ -1,0 +1,17 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<https://example.org/dataset/global-rivers-dataset-lengths-countries> a dcat:Dataset ;
+    dct:title "Global Rivers Dataset 🌍 | Lengths & Countries" ;
+    dct:description "This dataset provides a comprehensive view of 1,000+ rivers across the globe, including their geospatial paths, lengths, source and mouth coordinates, and the countries they flow through. Whether you're a GIS enthusiast, data scientist, or climate researcher, this dataset offers rich geospatial features perfect for mapping, modeling, and analysis." ;
+    dct:creator <https://www.kaggle.com/sangampaudel530> ;
+    dcat:keyword "Earth and Nature", "Global", "Geospatial Analysis", "Geography", "Water Bodies" ;
+    dct:spatial <http://www.wikidata.org/entity/Q2> ;
+    dcat:landingPage <https://www.kaggle.com/datasets/sangampaudel530/global-rivers-dataset-lengths-and-countries> ;
+    dct:license <https://www.mit.edu/~amini/LICENSE.md> ;
+    dct:provenance <https://www.naturalearthdata.com/> ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> ;
+        dcat:accessURL <https://www.kaggle.com/datasets/sangampaudel530/global-rivers-dataset-lengths-and-countries>
+    ] .
