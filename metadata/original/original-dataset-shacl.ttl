@@ -1,0 +1,138 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix orig: <https://w3id.org/FAIR-course-UT/2026/group07/shapes/original-metadata/> .
+
+orig:GeneralGroup
+  a sh:PropertyGroup ;
+  rdfs:label "General" ;
+  sh:order 0 .
+
+orig:OriginalDatasetShape
+  a sh:NodeShape ;
+  rdfs:label "Original Global Rivers dataset" ;
+  sh:targetClass dcat:Dataset ;
+  sh:property [
+    sh:path dct:title ;
+    sh:name "Dataset title" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 0 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group orig:GeneralGroup
+  ] ;
+  sh:property [
+    sh:path dct:description ;
+    sh:name "Description" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:order 1 ;
+    dash:editor dash:TextAreaEditor ;
+    sh:group orig:GeneralGroup
+  ] ;
+sh:property [
+    sh:path dct:creator ;
+    sh:name "Creator" ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:order 2 ;
+    dash:editor dash:URIEditor ;
+    sh:group orig:GeneralGroup
+] ;
+  sh:property [
+    sh:path dcat:keyword ;
+    sh:name "Keyword" ;
+    sh:datatype xsd:string ;
+    sh:order 3 ;
+    dash:editor dash:TextFieldEditor ;
+    sh:group orig:GeneralGroup
+  ] ;
+  sh:property [
+    sh:path dct:spatial ;
+    sh:name "Spatial coverage" ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:order 4 ;
+    dash:editor dash:URIEditor ;
+    sh:group orig:GeneralGroup
+  ] ;
+  sh:property [
+    sh:path dcat:landingPage ;
+    sh:name "Original Kaggle page" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 5 ;
+    dash:editor dash:URIEditor ;
+    sh:group orig:GeneralGroup
+  ] ;
+  sh:property [
+    sh:path dct:license ;
+    sh:name "Original license" ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:order 6 ;
+    dash:editor dash:URIEditor ;
+    sh:group orig:GeneralGroup
+  ] ;
+
+sh:property [
+    sh:path dct:provenance ;
+    sh:name "Provenance" ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:order 7 ;
+    dash:editor dash:URIEditor ;
+    sh:group orig:GeneralGroup
+] ;
+
+  sh:property [
+    sh:path dcat:distribution ;
+    sh:name "CSV distribution" ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:node orig:OriginalCSVDistributionShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 8 ;
+    dash:editor dash:DetailsEditor ;
+    sh:group orig:GeneralGroup
+  ] .
+
+orig:OriginalCSVDistributionShape
+  a sh:NodeShape ;
+  sh:targetClass dcat:Distribution ;
+  sh:property _:n3-7 ;
+  sh:property [
+    sh:path dcat:accessURL ;
+    sh:name "Access URL" ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:order 1 ;
+    dash:editor dash:URIEditor
+  ] ;
+  sh:property [
+    sh:path dcat:downloadURL ;
+    sh:name "Direct download URL " ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:order 2 ;
+    dash:editor dash:URIEditor
+  ] .
+
+_:n3-7
+  sh:path dcat:mediaType ;
+  sh:name "CSV media type" ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:order 0 ;
+  dash:editor dash:URIEditor .
+
+# ── Preserved: SHACL/RDF Contour does not model. Round-tripped as-is. ──
+<https://w3id.org/FAIR-course-UT/2026/group07/shapes/original-metadata/OriginalCSVDistributionShape> <http://www.w3.org/2000/01/rdf-schema#label> "Original CSV distribution" .
+_:n3-7 <http://www.w3.org/ns/shacl#hasValue> <https://www.iana.org/assignments/media-types/text/csv> .
