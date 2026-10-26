@@ -1,0 +1,25 @@
+PREFIX schema: <http://schema.org/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX gr: <https://w3id.org/FAIR-course-UT/2026/group07/>
+
+SELECT ?regionType ?region ?categoryLabel
+       (COUNT(DISTINCT ?river) AS ?riverCount)
+WHERE {
+  ?river a schema:RiverBodyOfWater ;
+         dct:type ?category .
+  ?category skos:prefLabel ?categoryLabel .
+  {
+    ?river schema:geoIntersects ?region .
+    BIND("Country" AS ?regionType)
+  }
+  UNION
+  {
+    ?river schema:containedInPlace ?region .
+    BIND("Continent" AS ?regionType)
+  }
+}
+GROUP BY ?regionType ?region ?categoryLabel
+ORDER BY ?regionType ?region ?categoryLabel

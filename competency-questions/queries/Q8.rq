@@ -1,0 +1,24 @@
+PREFIX schema: <http://schema.org/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX gr: <https://w3id.org/FAIR-course-UT/2026/group07/>
+
+SELECT ?flowType (COUNT(?river) AS ?totalRivers)
+       (SUM(IF(?category = <https://w3id.org/FAIR-course-UT/2026/group07/length-category/long>, 1, 0)) AS ?longRivers)
+       (ROUND(1000.0 * SUM(IF(?category = <https://w3id.org/FAIR-course-UT/2026/group07/length-category/long>, 1, 0)) / COUNT(?river)) / 10.0 AS ?longPercentage)
+WHERE {
+  {
+    SELECT ?river ?category (COUNT(DISTINCT ?country) AS ?countryCount)
+    WHERE {
+      ?river a schema:RiverBodyOfWater ;
+             dct:type ?category ;
+             schema:geoIntersects ?country .
+    }
+    GROUP BY ?river ?category
+  }
+  BIND(IF(?countryCount > 1, "Multiple countries", "One country") AS ?flowType)
+}
+GROUP BY ?flowType
+ORDER BY ?flowType
