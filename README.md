@@ -28,21 +28,29 @@ Each **River** entry contains a name, numeric length in kilometres, length categ
 | Machine-readable dataset metadata | [Dataset metadata W3ID](https://w3id.org/FAIR-course-UT/2026/group07/metadata/rivers) |
 | River data SHACL | [River SHACL W3ID](https://w3id.org/FAIR-course-UT/2026/group07/shapes/river-shapes) |
 | Metadata SHACL (Contour) | [Metadata SHACL W3ID](https://w3id.org/FAIR-course-UT/2026/group07/shapes/metadata-shapes) |
+| Competency questions SPARQL queries | [Queries](competency-questions/queries/) |
+| Competency questions results | [Answers](competency-questions/answers/) |
 
 The W3ID identifiers resolve through redirect rules to resources maintained in this repository. Depending on the requested representation, a URI may resolve to a GitHub page in this repo or a raw Turtle file for download.
 ## Repository contents
 
 ```text
 data/
-  global-rivers-dataset-csv-RDF.ttl        FAIRified river RDF (43,499 triples)
-  schema-data.ttl                        SHACL shapes for river RDF
+  global-rivers-dataset-csv-RDF.ttl         FAIRified river RDF (43,499 triples)
+  schema-data.ttl                         SHACL shapes for the river RDF
 metadata/
-  global-rivers-dataset-SCHACL-schema.ttl Descriptive dataset metadata in RDF
-  global-rivers-dataset-metadata-RDF.ttl  Contour metadata SHACL profile
+  global-rivers-dataset-SCHACL-schema.ttl  FAIRified dataset metadata in RDF
+  global-rivers-dataset-metadata-RDF.ttl   Contour SHACL profile for FAIRified metadata
+  original/
+    original-dataset-metadata.ttl          Retrospective metadata for the Kaggle dataset
+    original-dataset-shacl.ttl             SHACL shape for the original dataset metadata
 documents/
-  data-dictionary.md                     Fields, entities, predicates and units
-  methodology.md                         Preparation, reconciliation and publication
-README.md                                Repository overview
+  data-dictionary.md                      Attributes, entities, predicates, and units
+  methodology.md                          Preparation, reconciliation, and publication
+competency-questions/
+  queries/                                SPARQL queries for the competency questions (.rq)
+  answers/                                Corresponding query results (.csv)
+README.md                                 Repository overview
 ```
 ## Semantic model
 
