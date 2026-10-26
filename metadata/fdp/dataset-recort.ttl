@@ -1,0 +1,80 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+
+<http://localhost:8080/distribution/> a ldp:DirectContainer, ldp:DirectContainer;
+  dcterms:title "Distributions", "Distributions";
+  ldp:contains <http://localhost:8080/distribution/a68f699d-5cfc-4ca3-83b3-eb300805298d>,
+    <http://localhost:8080/distribution/a68f699d-5cfc-4ca3-83b3-eb300805298d>, <http://localhost:8080/distribution/ea65202d-4687-45c6-be47-7126b50499d7>;
+  ldp:hasMemberRelation dcat:distribution, dcat:distribution;
+  ldp:membershipResource <http://localhost:8080/dataset/b397ba07-51ba-45ee-881c-5da00ffa6031>,
+    <http://localhost:8080/dataset/b397ba07-51ba-45ee-881c-5da00ffa6031> .
+
+<http://localhost:8080/dataset/b397ba07-51ba-45ee-881c-5da00ffa6031> a dcat:Resource,
+    dcat:Dataset;
+  <http://www.w3.org/2000/01/rdf-schema#label> "FAIRified Global Rivers";
+  dcterms:title "FAIRified Global Rivers";
+  dcat:version "1.0.1";
+  <https://w3id.org/fdp/fdp-o#metadataIssued> "2026-10-23T23:17:26.224498522Z"^^xsd:dateTime;
+  <https://w3id.org/fdp/fdp-o#metadataModified> "2026-10-26T22:58:15.781729906Z"^^xsd:dateTime;
+  dcterms:license <https://www.mit.edu/~amini/LICENSE.md>;
+  dcterms:description "A FAIRified dataset consisting of 1,387 unique river entries. Each is associated with a name, length, length category, spatial coordinates, a list of passed countries, main country, and a continent. The original dataset was transformed into RDF using established semantic vocabularies. River and geographical entities are linked to external resources, e.g., Wikidata and GeoNames. This is done to improve interoperability and reuse of the dataset. Provenance information and derived classification of the rivers based on their lengths are also included. ";
+  dcterms:conformsTo <http://localhost:8080/profile/2f08228e-1789-40f8-84cd-28e3288c3604>,
+    <http://localhost:8080/profile/2f08228e-1789-40f8-84cd-28e3288c3604>;
+  dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en>;
+  <https://w3id.org/fdp/fdp-o#metadataIdentifier> <http://localhost:8080/dataset/b397ba07-51ba-45ee-881c-5da00ffa6031#identifier>;
+  dcterms:identifier "https://w3id.org/FAIR-course-UT/2026/group07/dataset/rivers";
+  dcterms:accessRights <http://localhost:8080/dataset/b397ba07-51ba-45ee-881c-5da00ffa6031#accessRights>;
+  dcterms:publisher [ a foaf:Agent;
+      foaf:name "University of Twente"
+    ];
+  dcterms:isPartOf <http://localhost:8080/catalog/4bfa1ea1-795a-4599-b30f-c442b486ad2a>;
+  <http://semanticscience.org/resource/SIO_000628> <http://localhost:8080/dataset/b397ba07-51ba-45ee-881c-5da00ffa6031/metrics/445c0a70d1e214e545b261559e2842f4>,
+    <http://localhost:8080/dataset/b397ba07-51ba-45ee-881c-5da00ffa6031/metrics/5d27e854a9e78eb3f663331cd47cdc13>;
+  dcterms:issued "2026-10-23T22:00:00Z"^^xsd:dateTime;
+  dcterms:modified "2026-10-23T22:00:00Z"^^xsd:dateTime;
+  dcterms:source <https://www.kaggle.com/datasets/sangampaudel530/global-rivers-dataset-lengths-and-countries>;
+  <http://rdfs.org/ns/void#exampleResource> <https://w3id.org/FAIR-course-UT/2026/group07/river/river-14deb23c806d097f>;
+  <http://rdfs.org/ns/void#triples> "43499"^^xsd:nonNegativeInteger;
+  <http://rdfs.org/ns/void#uriSpace> "https://w3id.org/FAIR-course-UT/2026/group07/";
+  <http://rdfs.org/ns/void#vocabulary> <http://dbpedia.org/ontology/>, <http://purl.org/dc/terms/>,
+    <http://qudt.org/vocab/unit/>, <http://schema.org/>, <http://www.opengis.net/ont/geosparql#>,
+    <http://www.w3.org/2002/07/owl#>, <http://www.w3.org/2003/01/geo/wgs84_pos#>, <http://www.w3.org/2004/02/skos/core#>,
+    <http://www.w3.org/ns/prov#>, <http://qudt.org/schema/qudt/>;
+  <http://www.w3.org/ns/adms#versionNotes> "Initial FAIRified release of the Global Rivers dataset. Modifications include data cleaning, enrichment with unique river identifiers, linking to external entities (Wikidata and GeoNames), and the introduction of persistent W3ID identifiers for project-specific resources. Additional semantic representations were introduced for geographical coordinates, river lengths, river length categories, and provenance.";
+  dcat:keyword "GIS", "GeoNames", "Geography", "Hydrology", "Linked Data", "Natural Earth",
+    "River", "Wikidata";
+  dcat:theme <http://www.wikidata.org/entity/Q4022>;
+  <http://www.w3.org/ns/prov#wasDerivedFrom> <https://www.kaggle.com/datasets/sangampaudel530/global-rivers-dataset-lengths-and-countries>,
+    <https://www.naturalearthdata.com/>;
+  dcat:distribution <http://localhost:8080/distribution/a68f699d-5cfc-4ca3-83b3-eb300805298d>,
+    <http://localhost:8080/distribution/ea65202d-4687-45c6-be47-7126b50499d7>;
+  dcterms:creator <https://github.com/DinevDD>;
+  dcat:contactPoint <mailto:d.dinev-1@student.utwente.nl>;
+  dcat:landingPage <https://github.com/DinevDD/global-rivers-fairification>;
+  foaf:page <https://github.com/DinevDD/global-rivers-fairification/blob/main/documents/data-dictionary.md>,
+    <https://github.com/DinevDD/global-rivers-fairification/blob/main/documents/methodology.md>,
+    <https://github.com/DinevDD/global-rivers-fairification/blob/main/README.md>;
+  dcterms:spatial <http://www.wikidata.org/entity/Q2> .
+
+<http://localhost:8080/dataset/b397ba07-51ba-45ee-881c-5da00ffa6031#identifier> a
+    <http://purl.org/spar/datacite/Identifier>;
+  dcterms:identifier "http://localhost:8080/dataset/b397ba07-51ba-45ee-881c-5da00ffa6031" .
+
+<http://localhost:8080/dataset/b397ba07-51ba-45ee-881c-5da00ffa6031#accessRights>
+  a dcterms:RightsStatement;
+  dcterms:description "This resource has no access restriction" .
+
+<http://localhost:8080/profile/2f08228e-1789-40f8-84cd-28e3288c3604> <http://www.w3.org/2000/01/rdf-schema#label>
+    "Dataset Profile", "Dataset Profile" .
+
+<http://localhost:8080/dataset/b397ba07-51ba-45ee-881c-5da00ffa6031/metrics/445c0a70d1e214e545b261559e2842f4>
+  <http://semanticscience.org/resource/SIO_000628> <https://www.ietf.org/rfc/rfc3986.txt>;
+  <http://semanticscience.org/resource/SIO_000332> <https://www.ietf.org/rfc/rfc3986.txt> .
+
+<http://localhost:8080/dataset/b397ba07-51ba-45ee-881c-5da00ffa6031/metrics/5d27e854a9e78eb3f663331cd47cdc13>
+  <http://semanticscience.org/resource/SIO_000628> <https://www.wikidata.org/wiki/Q8777>;
+  <http://semanticscience.org/resource/SIO_000332> <https://www.wikidata.org/wiki/Q8777> .
+
