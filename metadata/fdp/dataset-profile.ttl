@@ -1,0 +1,144 @@
+@prefix :         <http://fairdatapoint.org/> .
+@prefix dash:     <http://datashapes.org/dash#> .
+@prefix dcat:     <http://www.w3.org/ns/dcat#> .
+@prefix dct:      <http://purl.org/dc/terms/> .
+@prefix sh:       <http://www.w3.org/ns/shacl#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov:     <http://www.w3.org/ns/prov#> .
+@prefix void:     <http://rdfs.org/ns/void#> .
+@prefix adms:     <http://www.w3.org/ns/adms#> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+
+:DatasetShape a sh:NodeShape ;
+  sh:targetClass dcat:Dataset ;
+  sh:property [
+    sh:path dct:issued ;
+    sh:datatype xsd:dateTime ;
+    sh:maxCount 1 ;
+    dash:editor dash:DateTimePickerEditor ;
+    dash:viewer dash:LiteralViewer ;
+    sh:order 20 ;
+  ], [
+    sh:path dct:modified ;
+    sh:datatype xsd:dateTime ;
+    sh:maxCount 1 ;
+    dash:editor dash:DateTimePickerEditor ;
+    dash:viewer dash:LiteralViewer ;
+    sh:order 21 ;
+  ],  [
+    sh:path dcat:theme ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+    sh:order 22 ;
+  ], [
+    sh:path dcat:contactPoint ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+    sh:order 23 ;
+  ], [
+    sh:path dcat:keyword ;
+    sh:nodeKind sh:Literal ;
+    dash:editor dash:TextFieldEditor ;
+    dash:viewer dash:LiteralViewer ;
+    sh:order 24 ;
+  ], [
+    sh:path dcat:landingPage ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+    sh:order 25 ;
+], [
+    sh:path dct:identifier ;
+    sh:name "Persistent dataset identifier" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    dash:editor dash:TextFieldEditor ;
+    dash:viewer dash:LiteralViewer ;
+    sh:order 26 ;
+], [
+    sh:path dct:source ;
+    sh:name "Original dataset source" ;
+    sh:nodeKind sh:IRI ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+    sh:order 27 ;
+], [
+    sh:path prov:wasDerivedFrom ;
+    sh:name "Derived from" ;
+    sh:nodeKind sh:IRI ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+    sh:order 28 ;
+], [
+    sh:path adms:versionNotes ;
+    sh:name "Version notes" ;
+    sh:datatype xsd:string ;
+    dash:editor dash:TextAreaEditor ;
+    dash:viewer dash:LiteralViewer ;
+    sh:order 29 ;
+], [
+    sh:path void:uriSpace ;
+    sh:name "Resource URI space" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    dash:editor dash:TextFieldEditor ;
+    dash:viewer dash:LiteralViewer ;
+    sh:order 30 ;
+], [
+    sh:path void:exampleResource ;
+    sh:name "Example river resource" ;
+    sh:nodeKind sh:IRI ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+    sh:order 31 ;
+], [
+    sh:path void:triples ;
+    sh:name "RDF triple count" ;
+    sh:datatype xsd:nonNegativeInteger ;
+    sh:maxCount 1 ;
+    dash:editor dash:TextFieldEditor ;
+    dash:viewer dash:LiteralViewer ;
+    sh:order 32 ;
+], [
+    sh:path dct:references ;
+    sh:name "Semantic models (SHACL)" ;
+    sh:description "References to the published SHACL models for the FAIRified data and its metadata." ;
+    sh:nodeKind sh:IRI ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+    sh:order 33 ;
+] , [
+    sh:path dct:spatial ;
+    sh:name "Spatial coverage" ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+    sh:order 34 ;
+], [
+    sh:path dct:creator ;
+    sh:name "Dataset creator" ;
+    sh:nodeKind sh:IRI ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+    sh:order 35 ;
+], [
+    sh:path foaf:page ;
+    sh:name "Documentation pages" ;
+    sh:nodeKind sh:IRI ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+    sh:order 36 ;
+], [
+    sh:path void:vocabulary ;
+    sh:name "Vocabularies used" ;
+    sh:nodeKind sh:IRI ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+    sh:order 37 ;
+] .

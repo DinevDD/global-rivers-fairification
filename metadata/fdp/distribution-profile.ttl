@@ -1,0 +1,85 @@
+
+@prefix : <http://fairdatapoint.org/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:DistributionShape
+    a sh:NodeShape ;
+    sh:targetClass dcat:Distribution ;
+
+    sh:property [
+        sh:path dct:issued ;
+        sh:name "Issued" ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        dash:editor dash:DateTimePickerEditor ;
+        dash:viewer dash:LiteralViewer ;
+        sh:order 20 ;
+    ] ;
+
+    sh:property [
+        sh:path dct:modified ;
+        sh:name "Modified" ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        dash:editor dash:DateTimePickerEditor ;
+        dash:viewer dash:LiteralViewer ;
+        sh:order 21 ;
+    ] ;
+
+    sh:property [
+        sh:path dcat:accessURL ;
+        sh:name "Access URL" ;
+        sh:description "URL providing access to the distribution." ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        dash:editor dash:URIEditor ;
+        sh:order 22 ;
+    ] ;
+
+    sh:property [
+        sh:path dcat:downloadURL ;
+        sh:name "Download URL" ;
+        sh:description "Persistent W3ID resolving to the downloadable data file." ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        dash:editor dash:URIEditor ;
+        sh:order 23 ;
+    ] ;
+
+    sh:property [
+        sh:path dcat:mediaType ;
+        sh:name "Media type" ;
+        sh:description "MIME type, such as text/turtle or text/csv." ;
+        sh:nodeKind sh:Literal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        dash:editor dash:TextFieldEditor ;
+        dash:viewer dash:LiteralViewer ;
+        sh:order 24 ;
+    ] ;
+
+    sh:property [
+        sh:path dcat:format ;
+        sh:name "Format" ;
+        sh:nodeKind sh:Literal ;
+        sh:maxCount 1 ;
+        dash:editor dash:TextFieldEditor ;
+        dash:viewer dash:LiteralViewer ;
+        sh:order 25 ;
+    ] ;
+
+    sh:property [
+        sh:path dcat:byteSize ;
+        sh:name "File size in bytes" ;
+        sh:datatype xsd:nonNegativeInteger ;
+        sh:maxCount 1 ;
+        dash:editor dash:TextFieldEditor ;
+        dash:viewer dash:LiteralViewer ;
+        sh:order 26 ;
+    ] .
