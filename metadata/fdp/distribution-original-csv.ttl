@@ -1,0 +1,49 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+
+<http://localhost:8080/distribution/ea65202d-4687-45c6-be47-7126b50499d7> a dcat:Resource,
+    dcat:Distribution;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Original Global Rivers CSV Distribution";
+  dcterms:title "Original Global Rivers CSV Distribution";
+  dcat:version "1.0.0";
+  <https://w3id.org/fdp/fdp-o#metadataIssued> "2026-10-26T22:36:39.366084237Z"^^xsd:dateTime;
+  <https://w3id.org/fdp/fdp-o#metadataModified> "2026-10-26T22:41:28.020373725Z"^^xsd:dateTime;
+  dcterms:license <https://www.mit.edu/~amini/LICENSE.md>;
+  dcterms:description "Original Global Rivers dataset from Kaggle, as created before the FAIRification process.";
+  dcterms:conformsTo <http://localhost:8080/profile/02c649de-c579-43bb-b470-306abdc808c7>,
+    <http://localhost:8080/profile/02c649de-c579-43bb-b470-306abdc808c7>;
+  dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en>;
+  <https://w3id.org/fdp/fdp-o#metadataIdentifier> <http://localhost:8080/distribution/ea65202d-4687-45c6-be47-7126b50499d7#identifier>;
+  dcterms:accessRights <http://localhost:8080/distribution/ea65202d-4687-45c6-be47-7126b50499d7#accessRights>;
+  dcterms:publisher [ a foaf:Agent;
+      foaf:name "Kaggle"
+    ];
+  dcterms:isPartOf <http://localhost:8080/dataset/b397ba07-51ba-45ee-881c-5da00ffa6031>;
+  <http://semanticscience.org/resource/SIO_000628> <http://localhost:8080/distribution/ea65202d-4687-45c6-be47-7126b50499d7/metrics/445c0a70d1e214e545b261559e2842f4>,
+    <http://localhost:8080/distribution/ea65202d-4687-45c6-be47-7126b50499d7/metrics/5d27e854a9e78eb3f663331cd47cdc13>;
+  dcat:accessURL <https://w3id.org/FAIR-course-UT/2026/group07/distribution/rivers-original-csv>;
+  dcat:downloadURL <https://w3id.org/FAIR-course-UT/2026/group07/distribution/rivers-original-csv>;
+  dcat:mediaType "text/csv" .
+
+<http://localhost:8080/distribution/ea65202d-4687-45c6-be47-7126b50499d7#identifier>
+  a <http://purl.org/spar/datacite/Identifier>;
+  dcterms:identifier "http://localhost:8080/distribution/ea65202d-4687-45c6-be47-7126b50499d7" .
+
+<http://localhost:8080/distribution/ea65202d-4687-45c6-be47-7126b50499d7#accessRights>
+  a dcterms:RightsStatement;
+  dcterms:description "This resource has no access restriction" .
+
+<http://localhost:8080/profile/02c649de-c579-43bb-b470-306abdc808c7> <http://www.w3.org/2000/01/rdf-schema#label>
+    "Distribution Profile", "Distribution Profile" .
+
+<http://localhost:8080/distribution/ea65202d-4687-45c6-be47-7126b50499d7/metrics/445c0a70d1e214e545b261559e2842f4>
+  <http://semanticscience.org/resource/SIO_000628> <https://www.ietf.org/rfc/rfc3986.txt>;
+  <http://semanticscience.org/resource/SIO_000332> <https://www.ietf.org/rfc/rfc3986.txt> .
+
+<http://localhost:8080/distribution/ea65202d-4687-45c6-be47-7126b50499d7/metrics/5d27e854a9e78eb3f663331cd47cdc13>
+  <http://semanticscience.org/resource/SIO_000628> <https://www.wikidata.org/wiki/Q8777>;
+  <http://semanticscience.org/resource/SIO_000332> <https://www.wikidata.org/wiki/Q8777> .
+
