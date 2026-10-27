@@ -86,7 +86,7 @@ The dataset contains two published distributions:
 - **Original CSV Distribution:** The original Kaggle dataset, prior to FAIRification, available as `text/csv`.
 - **FAIRified RDF Distribution:** The triplified dataset, available as `text/turtle`.
 
-Both distributions use persistent W3ID identifiers for their `dcat:accessURL` and `dcat:downloadURL` properties. These identifiers resolve to the corresponding files hosted publicly on GitHub.
+The distributions' `dcat:accessURL` properties reference their corresponding GitHub file pages, allowing users to inspect the published data. Their `dcat:downloadURL` properties use persistent W3ID identifiers, which resolve directly to the downloadable CSV and RDF Turtle files respectively.
 
 The FDP's Dataset and Distribution metadata profiles were extended using SHACL to accommodate the project's metadata requirements. The resulting profiles, together with the exported RDF metadata records of the dataset and both distributions, are available in the [metadata/fdp/](metadata/fdp/) directory.
 
