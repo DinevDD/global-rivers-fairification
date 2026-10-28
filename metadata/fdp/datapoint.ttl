@@ -1,0 +1,59 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+
+<http://localhost:8080> a dcat:Resource, dcat:DataService, <https://w3id.org/fdp/fdp-o#MetadataService>,
+    <https://w3id.org/fdp/fdp-o#FAIRDataPoint>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Global Rivers FAIR Data Point";
+  dcterms:title "Global Rivers FAIR Data Point";
+  dcat:version "1.0";
+  <https://w3id.org/fdp/fdp-o#metadataIssued> "2026-10-11T21:58:01.739226855Z"^^xsd:dateTime;
+  <https://w3id.org/fdp/fdp-o#metadataModified> "2026-10-27T00:18:52.268390782Z"^^xsd:dateTime;
+  dcterms:license <https://www.mit.edu/~amini/LICENSE.md>;
+  dcterms:description """This FAIR Data Point provides structured metadata for the FAIRified Global Rivers dataset, developed as part of FAIR Data Engineering course. It contains a catalogue, dataset metadata, and an RDF distribution describing 1,387 river entries. The metadata includes persistent identifiers, provenance information, semantic representations, and references to the underlying data and documentation.
+
+The FAIRified dataset is available in RDF format through a public GitHub repository and resolvable W3ID identifiers. The FAIR Data Point itself is deployed locally and provides a metadata interface following the FAIR Data Point architecture.""";
+  dcterms:conformsTo <http://localhost:8080/profile/77aaad6a-0136-4c6e-88b9-07ffccd0ee4c>,
+    <http://localhost:8080/profile/77aaad6a-0136-4c6e-88b9-07ffccd0ee4c>;
+  dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en>;
+  <https://w3id.org/fdp/fdp-o#metadataIdentifier> <http://localhost:8080#identifier>;
+  <http://www.re3data.org/schema/3-0#repositoryIdentifier> <http://localhost:8080#identifier>;
+  dcterms:accessRights <http://localhost:8080#accessRights>;
+  dcterms:publisher <http://localhost:8080#publisher>;
+  <http://semanticscience.org/resource/SIO_000628> <http://localhost:8080/metrics/445c0a70d1e214e545b261559e2842f4>,
+    <http://localhost:8080/metrics/5d27e854a9e78eb3f663331cd47cdc13>;
+  <https://w3id.org/fdp/fdp-o#metadataCatalog> <http://localhost:8080/catalog/4bfa1ea1-795a-4599-b30f-c442b486ad2a>;
+  dcat:endpointDescription <http://localhost:8080/swagger-ui.html>, <http://localhost:8080/v3/api-docs>,
+    <http://localhost:8080/v3/api-docs>, <http://localhost:8080/swagger-ui.html>;
+  dcat:endpointURL <http://localhost:8080>, <http://localhost:8080>;
+  <https://w3id.org/fdp/fdp-o#fdpSoftwareVersion> "FDP:v1.22.2~842c172", "FDP:v1.22.2~842c172" .
+
+<http://localhost:8080#identifier> a <http://purl.org/spar/datacite/Identifier>;
+  dcterms:identifier "http://localhost:8080" .
+
+<http://localhost:8080#accessRights> a dcterms:RightsStatement;
+  dcterms:description "This resource has no access restriction" .
+
+<http://localhost:8080#publisher> a foaf:Agent;
+  foaf:name "University of Twente" .
+
+<http://localhost:8080/catalog/> a ldp:DirectContainer, ldp:DirectContainer;
+  dcterms:title "Catalogs", "Catalogs";
+  ldp:contains <http://localhost:8080/catalog/4bfa1ea1-795a-4599-b30f-c442b486ad2a>,
+    <http://localhost:8080/catalog/4bfa1ea1-795a-4599-b30f-c442b486ad2a>;
+  ldp:hasMemberRelation <https://w3id.org/fdp/fdp-o#metadataCatalog>, <https://w3id.org/fdp/fdp-o#metadataCatalog>;
+  ldp:membershipResource <http://localhost:8080>, <http://localhost:8080> .
+
+<http://localhost:8080/profile/77aaad6a-0136-4c6e-88b9-07ffccd0ee4c> <http://www.w3.org/2000/01/rdf-schema#label>
+    "FAIR Data Point Profile", "FAIR Data Point Profile" .
+
+<http://localhost:8080/metrics/445c0a70d1e214e545b261559e2842f4> <http://semanticscience.org/resource/SIO_000628>
+    <https://www.ietf.org/rfc/rfc3986.txt>;
+  <http://semanticscience.org/resource/SIO_000332> <https://www.ietf.org/rfc/rfc3986.txt> .
+
+<http://localhost:8080/metrics/5d27e854a9e78eb3f663331cd47cdc13> <http://semanticscience.org/resource/SIO_000628>
+    <https://www.wikidata.org/wiki/Q8777>;
+  <http://semanticscience.org/resource/SIO_000332> <https://www.wikidata.org/wiki/Q8777> .
+
