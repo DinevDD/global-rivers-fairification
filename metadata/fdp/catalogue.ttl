@@ -1,0 +1,58 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+
+<http://localhost:8080/catalog/4bfa1ea1-795a-4599-b30f-c442b486ad2a> a dcat:Resource,
+    dcat:Catalog;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Global Rivers FAIRification Catalogue";
+  dcterms:title "Global Rivers FAIRification Catalogue";
+  dcat:version "1.0.0";
+  <https://w3id.org/fdp/fdp-o#metadataIssued> "2026-10-23T22:05:04.207633313Z"^^xsd:dateTime;
+  <https://w3id.org/fdp/fdp-o#metadataModified> "2026-10-27T00:18:52.113066543Z"^^xsd:dateTime;
+  dcterms:license <https://www.mit.edu/~amini/LICENSE.md>;
+  dcterms:description "A catalogue containing the FAIRified Global Rivers dataset, including an RDF representation, semantic models, provenance information and supporting docs.";
+  dcterms:conformsTo <http://localhost:8080/profile/a0949e72-4466-4d53-8900-9436d1049a4b>,
+    <http://localhost:8080/profile/a0949e72-4466-4d53-8900-9436d1049a4b>;
+  dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en>;
+  <https://w3id.org/fdp/fdp-o#metadataIdentifier> <http://localhost:8080/catalog/4bfa1ea1-795a-4599-b30f-c442b486ad2a#identifier>;
+  dcterms:accessRights <http://localhost:8080/catalog/4bfa1ea1-795a-4599-b30f-c442b486ad2a#accessRights>;
+  dcterms:publisher [ a foaf:Agent;
+      foaf:name "University of Twente"
+    ];
+  dcterms:isPartOf <http://localhost:8080>;
+  <http://semanticscience.org/resource/SIO_000628> <http://localhost:8080/catalog/4bfa1ea1-795a-4599-b30f-c442b486ad2a/metrics/445c0a70d1e214e545b261559e2842f4>,
+    <http://localhost:8080/catalog/4bfa1ea1-795a-4599-b30f-c442b486ad2a/metrics/5d27e854a9e78eb3f663331cd47cdc13>;
+  dcterms:issued "2026-10-23T22:05:04.207633313Z"^^xsd:dateTime;
+  dcterms:modified "2026-10-23T23:47:21.381252135Z"^^xsd:dateTime;
+  dcat:dataset <http://localhost:8080/dataset/b397ba07-51ba-45ee-881c-5da00ffa6031>;
+  dcat:themeTaxonomy <http://www.wikidata.org/entity/Q4022> .
+
+<http://localhost:8080/catalog/4bfa1ea1-795a-4599-b30f-c442b486ad2a#identifier> a
+    <http://purl.org/spar/datacite/Identifier>;
+  dcterms:identifier "http://localhost:8080/catalog/4bfa1ea1-795a-4599-b30f-c442b486ad2a" .
+
+<http://localhost:8080/catalog/4bfa1ea1-795a-4599-b30f-c442b486ad2a#accessRights>
+  a dcterms:RightsStatement;
+  dcterms:description "This resource has no access restriction" .
+
+<http://localhost:8080/dataset/> a ldp:DirectContainer, ldp:DirectContainer;
+  dcterms:title "Datasets", "Datasets";
+  ldp:contains <http://localhost:8080/dataset/b397ba07-51ba-45ee-881c-5da00ffa6031>,
+    <http://localhost:8080/dataset/b397ba07-51ba-45ee-881c-5da00ffa6031>;
+  ldp:hasMemberRelation dcat:dataset, dcat:dataset;
+  ldp:membershipResource <http://localhost:8080/catalog/4bfa1ea1-795a-4599-b30f-c442b486ad2a>,
+    <http://localhost:8080/catalog/4bfa1ea1-795a-4599-b30f-c442b486ad2a> .
+
+<http://localhost:8080/profile/a0949e72-4466-4d53-8900-9436d1049a4b> <http://www.w3.org/2000/01/rdf-schema#label>
+    "Catalog Profile", "Catalog Profile" .
+
+<http://localhost:8080/catalog/4bfa1ea1-795a-4599-b30f-c442b486ad2a/metrics/445c0a70d1e214e545b261559e2842f4>
+  <http://semanticscience.org/resource/SIO_000628> <https://www.ietf.org/rfc/rfc3986.txt>;
+  <http://semanticscience.org/resource/SIO_000332> <https://www.ietf.org/rfc/rfc3986.txt> .
+
+<http://localhost:8080/catalog/4bfa1ea1-795a-4599-b30f-c442b486ad2a/metrics/5d27e854a9e78eb3f663331cd47cdc13>
+  <http://semanticscience.org/resource/SIO_000628> <https://www.wikidata.org/wiki/Q8777>;
+  <http://semanticscience.org/resource/SIO_000332> <https://www.wikidata.org/wiki/Q8777> .
+
