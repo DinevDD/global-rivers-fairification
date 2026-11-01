@@ -1,0 +1,471 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="https://w3id.org/FAIR-course-UT/2026/group07/ont"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="https://w3id.org/FAIR-course-UT/2026/group07/ont">
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal xml:lang="en">An OWL 2 DL-oriented application model of the 1,387 river resources in the published FAIRified Turtle dataset. It reuses existing vocabulary IRIs, defines project-scoped role classes, and links them by OWL class restrictions. RDF reification uses rdf:Statement/rdf:subject/rdf:predicate/rdf:object in the underlying RDF and SHACL; these reserved RDF terms are not redeclared as OWL classes or object properties. Cardinalities are specified by the companion SHACL shapes.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal xml:lang="en">Global Rivers — verified semantic data model</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal>1.1 — audited against the supplied RDF and SHACL</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="http://schema.org/GeoCoordinates"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://schema.org/PropertyValue"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://schema.org/RiverBodyOfWater"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.opengis.net/ont/geosparql#Feature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/ns/prov#Entity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ExternalIdentityLink"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LengthCategory"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RiverCoordinates"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RiverEntry"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RiverLength"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://dbpedia.org/ontology/country"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://dbpedia.org/ontology/mouthPosition"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://dbpedia.org/ontology/sourcePosition"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/dc/terms/source"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/dc/terms/type"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://schema.org/additionalProperty"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://schema.org/containedInPlace"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://schema.org/geoIntersects"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://schema.org/propertyID"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://schema.org/unitCode"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.w3.org/ns/prov#wasDerivedFrom"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://schema.org/latitude"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://schema.org/longitude"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://schema.org/value"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="https://w3id.org/FAIR-course-UT/2026/group07/length-category/long"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="https://w3id.org/FAIR-course-UT/2026/group07/length-category/medium"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="https://w3id.org/FAIR-course-UT/2026/group07/length-category/short"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/identifier"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://dbpedia.org/ontology/length"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://qudt.org/vocab/unit/KiloM"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#ExternalIdentityLink"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://www.w3.org/ns/prov#Entity"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="http://purl.org/dc/terms/source"/>
+                <Class abbreviatedIRI="owl:Thing"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="http://www.w3.org/ns/prov#wasDerivedFrom"/>
+                <Class abbreviatedIRI="owl:Thing"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#LengthCategory"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="https://w3id.org/FAIR-course-UT/2026/group07/length-category/long"/>
+            <NamedIndividual IRI="https://w3id.org/FAIR-course-UT/2026/group07/length-category/medium"/>
+            <NamedIndividual IRI="https://w3id.org/FAIR-course-UT/2026/group07/length-category/short"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#RiverCoordinates"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://schema.org/GeoCoordinates"/>
+            <Class IRI="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#RiverEntry"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://schema.org/RiverBodyOfWater"/>
+            <Class IRI="http://www.opengis.net/ont/geosparql#Feature"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#RiverLength"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://schema.org/PropertyValue"/>
+            <ObjectHasValue>
+                <ObjectProperty IRI="http://schema.org/propertyID"/>
+                <NamedIndividual IRI="http://dbpedia.org/ontology/length"/>
+            </ObjectHasValue>
+            <ObjectHasValue>
+                <ObjectProperty IRI="http://schema.org/unitCode"/>
+                <NamedIndividual IRI="http://qudt.org/vocab/unit/KiloM"/>
+            </ObjectHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#LengthCategory"/>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RiverCoordinates"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="http://schema.org/latitude"/>
+            <Datatype abbreviatedIRI="xsd:double"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RiverCoordinates"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="http://schema.org/longitude"/>
+            <Datatype abbreviatedIRI="xsd:double"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RiverEntry"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://dbpedia.org/ontology/country"/>
+            <Class abbreviatedIRI="owl:Thing"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RiverEntry"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://dbpedia.org/ontology/mouthPosition"/>
+            <Class IRI="#RiverCoordinates"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RiverEntry"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://dbpedia.org/ontology/sourcePosition"/>
+            <Class IRI="#RiverCoordinates"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RiverEntry"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://purl.org/dc/terms/type"/>
+            <Class IRI="#LengthCategory"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RiverEntry"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://schema.org/additionalProperty"/>
+            <Class IRI="#RiverLength"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RiverEntry"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://schema.org/containedInPlace"/>
+            <Class abbreviatedIRI="owl:Thing"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RiverEntry"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://schema.org/geoIntersects"/>
+            <Class abbreviatedIRI="owl:Thing"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RiverEntry"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://www.w3.org/ns/prov#wasDerivedFrom"/>
+            <Class abbreviatedIRI="owl:Thing"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RiverLength"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="http://schema.org/value"/>
+            <Datatype abbreviatedIRI="xsd:double"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="https://w3id.org/FAIR-course-UT/2026/group07/length-category/long"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="https://w3id.org/FAIR-course-UT/2026/group07/length-category/medium"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <NamedIndividual IRI="https://w3id.org/FAIR-course-UT/2026/group07/length-category/short"/>
+    </ClassAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://dbpedia.org/ontology/country</IRI>
+        <Literal xml:lang="en">main country</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://dbpedia.org/ontology/mouthPosition</IRI>
+        <Literal xml:lang="en">mouth position</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://dbpedia.org/ontology/sourcePosition</IRI>
+        <Literal xml:lang="en">source position</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/dc/terms/identifier</IRI>
+        <Literal xml:lang="en">local river identifier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/dc/terms/source</IRI>
+        <Literal xml:lang="en">identity-link provider</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/dc/terms/type</IRI>
+        <Literal xml:lang="en">length category</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://schema.org/GeoCoordinates</IRI>
+        <Literal xml:lang="en">Geographical coordinates</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://schema.org/PropertyValue</IRI>
+        <Literal xml:lang="en">Property value</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://schema.org/RiverBodyOfWater</IRI>
+        <Literal xml:lang="en">River body of water</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://schema.org/additionalProperty</IRI>
+        <Literal xml:lang="en">has measurement resource</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://schema.org/containedInPlace</IRI>
+        <Literal xml:lang="en">continent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://schema.org/geoIntersects</IRI>
+        <Literal xml:lang="en">countries passed through</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://schema.org/latitude</IRI>
+        <Literal xml:lang="en">latitude</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://schema.org/longitude</IRI>
+        <Literal xml:lang="en">longitude</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://schema.org/propertyID</IRI>
+        <Literal xml:lang="en">measured property reference (dbo:length IRI)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://schema.org/unitCode</IRI>
+        <Literal xml:lang="en">unit reference (KiloM IRI)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://schema.org/value</IRI>
+        <Literal xml:lang="en">numeric length</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.opengis.net/ont/geosparql#Feature</IRI>
+        <Literal xml:lang="en">Geographical feature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing</IRI>
+        <Literal xml:lang="en">WGS84 spatial thing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.w3.org/2004/02/skos/core#Concept</IRI>
+        <Literal xml:lang="en">SKOS concept</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.w3.org/2004/02/skos/core#definition</IRI>
+        <Literal xml:lang="en">length category definition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.w3.org/2004/02/skos/core#prefLabel</IRI>
+        <Literal xml:lang="en">length category label</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.w3.org/ns/prov#Entity</IRI>
+        <Literal xml:lang="en">Provenance entity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.w3.org/ns/prov#wasDerivedFrom</IRI>
+        <Literal xml:lang="en">was derived from</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>https://w3id.org/FAIR-course-UT/2026/group07/length-category/long</IRI>
+        <Literal>River with a length of at least 2000 km.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+        <IRI>https://w3id.org/FAIR-course-UT/2026/group07/length-category/long</IRI>
+        <Literal>Long</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>https://w3id.org/FAIR-course-UT/2026/group07/length-category/medium</IRI>
+        <Literal>River with a length of at least 500 km and below 2000 km.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+        <IRI>https://w3id.org/FAIR-course-UT/2026/group07/length-category/medium</IRI>
+        <Literal>Medium</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+        <IRI>https://w3id.org/FAIR-course-UT/2026/group07/length-category/short</IRI>
+        <Literal>River with a length below 500 km.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+        <IRI>https://w3id.org/FAIR-course-UT/2026/group07/length-category/short</IRI>
+        <Literal>Short</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ExternalIdentityLink</IRI>
+        <Literal xml:lang="en">Published RDF types each link as rdf:Statement and prov:Entity; rdf:subject points to the river, rdf:predicate is owl:sameAs, rdf:object is the external river URI, dct:source is the provider, and prov:wasDerivedFrom is the external source record. Reserved rdf:Statement and rdf:subject/rdf:predicate/rdf:object cannot be re-declared as OWL 2 DL classes/object properties; the reification structure remains fully specified in the companion SHACL file and diagram.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ExternalIdentityLink</IRI>
+        <Literal xml:lang="en">External identity link provenance record</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>#ExternalIdentityLink</IRI>
+        <AbbreviatedIRI>rdf:Statement</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LengthCategory</IRI>
+        <Literal xml:lang="en">Three explicit SKOS concept individuals already present in the dataset, with length thresholds represented by skos:definition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LengthCategory</IRI>
+        <Literal xml:lang="en">River length category</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RiverCoordinates</IRI>
+        <Literal xml:lang="en">Coordinates are identified IRI resources. Each has schema:latitude and schema:longitude literals of datatype xsd:double</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RiverCoordinates</IRI>
+        <Literal xml:lang="en">River source or mouth coordinates</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RiverEntry</IRI>
+        <Literal xml:lang="en">River (FAIRified record)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RiverLength</IRI>
+        <Literal xml:lang="en">River length measurement in kilometres</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi -->
+
